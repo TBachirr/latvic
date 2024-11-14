@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout';
+import { Link } from 'react-router-dom';
 
 export default function Services() {
   const services = [
@@ -79,61 +80,58 @@ export default function Services() {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-white pt-16">
-        {/* Hero Section */}
-        <div className="bg-gray-900 py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl font-extrabold text-white text-center">
-              Nos Services de Sécurité
+      <div className="min-h-screen bg-white">
+        {/* Hero Section avec fond noir et cercles décoratifs */}
+        <div className="relative bg-black py-24 overflow-hidden">
+          {/* Cercles décoratifs */}
+          <div className="absolute top-0 left-0 w-72 h-72 bg-red-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+          <div className="absolute top-0 right-0 w-72 h-72 bg-red-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            {/* Badge animé */}
+            <div className="inline-flex items-center px-4 py-2 bg-red-600/10 rounded-full text-red-600 backdrop-blur-sm border border-red-600/20 animate-pulse mb-8">
+              <span className="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+              <span className="text-sm font-medium">Solutions de sécurité professionnelles</span>
+            </div>
+
+            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6">
+              Nos Services de <span className="text-red-600">Sécurité</span>
             </h1>
-            <p className="mt-4 text-xl text-gray-300 text-center max-w-3xl mx-auto">
-              Des solutions de sécurité professionnelles adaptées à vos besoins spécifiques
+            <p className="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+              Des solutions adaptées à vos besoins spécifiques, avec une expertise reconnue en Guinée
             </p>
           </div>
         </div>
 
         {/* Services détaillés */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="group relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="p-8">
-                  <div className="flex items-center">
-                    <span className="text-4xl mr-4">{service.icon}</span>
-                    <h2 className="text-2xl font-bold text-gray-900">{service.title}</h2>
+                {/* Cercle décoratif */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-600/20 to-transparent rounded-bl-full"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <span className="text-4xl mr-4 group-hover:scale-110 transition-transform duration-300">{service.icon}</span>
+                    <h2 className="text-2xl font-bold text-white group-hover:text-red-600 transition-colors">{service.title}</h2>
                   </div>
-                  <p className="mt-4 text-gray-600">{service.description}</p>
-                  <ul className="mt-6 space-y-3">
+                  
+                  <p className="text-gray-300 mb-8">{service.description}</p>
+                  
+                  <ul className="space-y-4">
                     {service.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-center text-gray-600">
-                        <svg
-                          className="h-5 w-5 text-blue-600 mr-3"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M5 13l4 4L19 7"
-                          />
+                      <li key={idx} className="flex items-center text-gray-400">
+                        <svg className="h-5 w-5 text-red-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
                         {detail}
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-8">
-                    <a
-                      href="#contact"
-                      className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-                    >
-                      En savoir plus
-                    </a>
-                  </div>
                 </div>
               </div>
             ))}
@@ -141,26 +139,29 @@ export default function Services() {
         </div>
 
         {/* Section CTA */}
-        <div className="bg-gray-50 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h2 className="text-3xl font-extrabold text-gray-900">
-                Besoin d'une solution personnalisée ?
-              </h2>
-              <p className="mt-4 text-xl text-gray-600">
-                Contactez nos experts pour une consultation gratuite
-              </p>
-              <div className="mt-8">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-                >
-                  Contactez-nous
-                </a>
-              </div>
-            </div>
+        <section className="relative py-24 bg-black overflow-hidden">
+          {/* Cercles décoratifs */}
+          <div className="absolute top-0 left-0 w-72 h-72 bg-red-600 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+          <div className="absolute top-0 right-0 w-72 h-72 bg-red-600 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-4xl font-bold text-white mb-6">
+              Besoin d'une solution personnalisée ?
+            </h2>
+            <p className="text-xl text-red-100 mb-10 max-w-2xl mx-auto">
+              Nos experts sont à votre disposition pour une consultation gratuite
+            </p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center px-8 py-4 text-lg font-semibold rounded-lg text-white bg-red-600 hover:bg-red-700 transition-all duration-300 transform hover:-translate-y-1"
+            >
+              Contactez-nous
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
           </div>
-        </div>
+        </section>
       </div>
     </Layout>
   );
