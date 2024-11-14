@@ -83,7 +83,7 @@ export default function Home() {
       description: "Anticipation et prévention des risques pour votre tranquillité",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
         </svg>
       ),
     },
@@ -110,7 +110,8 @@ export default function Home() {
       description: "Transport sécurisé de vos valeurs avec une équipe hautement qualifiée",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
         </svg>
       ),
     },
@@ -164,48 +165,22 @@ export default function Home() {
                   </span>
                 </h1>
                 <p className="mt-6 text-xl text-gray-300 max-w-3xl leading-relaxed">
-                  LATVIC est leader dans le domaine de la sécurité en Guinée. Nous offrons des solutions 
-                  complètes de protection pour les entreprises et les particuliers.
+                  Depuis plus de 10 ans, LATVIC assure la sécurité des entreprises et particuliers 
+                  en Guinée avec un taux de satisfaction client de 100%.
                 </p>
               </div>
 
               {/* Boutons d'action */}
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-lg text-white bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 hover:-translate-y-1"
-                >
+                <a href="#contact" className="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-lg text-white bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 hover:-translate-y-1">
                   <span>Contactez-nous</span>
                   <svg className="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </a>
-                <a
-                  href="#services"
-                  className="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-lg text-white border-2 border-white/20 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-white/10"
-                >
+                <a href="#services" className="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-lg text-white border-2 border-white/20 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-white/10">
                   Découvrir nos services
                 </a>
-              </div>
-
-              {/* Statistiques avec animation */}
-              <div 
-                ref={statsRef} 
-                className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 mt-8 border-t border-white/10"
-              >
-                {[
-                  { number: counts.years, suffix: "+", label: "Années d'expérience" },
-                  { number: counts.clients, suffix: "+", label: "Clients satisfaits" },
-                  { number: counts.support, suffix: "/7", label: "Support client" },
-                  { number: counts.satisfaction, suffix: "%", label: "Taux de satisfaction" },
-                ].map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-3xl font-bold text-white">
-                      {stat.number}{stat.suffix}
-                    </div>
-                    <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
@@ -281,174 +256,299 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-20 bg-white">
+        <section id="about" className="py-24 bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
-              <div>
-                <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-                  Pourquoi choisir LATVIC ?
-                </h2>
-                <p className="mt-4 text-lg text-gray-600">
-                  Avec plus de 10 ans d'expérience dans le domaine de la sécurité en Guinée, 
-                  nous sommes reconnus pour notre professionnalisme et notre expertise.
-                </p>
-                <div className="mt-8 space-y-4">
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0">
-                      <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <p className="ml-3 text-lg text-gray-600">Personnel hautement qualifié</p>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0">
-                      <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <p className="ml-3 text-lg text-gray-600">Disponibilité 24/7</p>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0">
-                      <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <p className="ml-3 text-lg text-gray-600">Solutions sur mesure</p>
-                  </div>
+            {/* En-tête avec titre et description */}
+            <div className="text-center max-w-3xl mx-auto mb-20">
+              <h2 className="text-4xl font-bold text-gray-900">
+                Pourquoi choisir <span className="text-blue-600">LATVIC</span> ?
+              </h2>
+              <div className="w-24 h-1 bg-blue-600 mx-auto my-6 rounded-full"></div>
+              <p className="text-xl text-gray-600">
+                Une décennie d'excellence en sécurité, au service de votre tranquillité
+              </p>
+            </div>
+
+            {/* Statistiques en bande */}
+            <div ref={statsRef} className="relative mb-24">
+              <div className="absolute inset-0 bg-blue-600 transform -skew-y-2"></div>
+              <div className="relative grid grid-cols-2 md:grid-cols-4 gap-8 py-12 px-6">
+                <div className="text-center">
+                  <div className="text-5xl font-bold text-white mb-2">{counts.years}+</div>
+                  <div className="text-blue-100 font-medium">Années d'expertise</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-5xl font-bold text-white mb-2">{counts.clients}+</div>
+                  <div className="text-blue-100 font-medium">Clients satisfaits</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-5xl font-bold text-white mb-2">{counts.support}/7</div>
+                  <div className="text-blue-100 font-medium">Jours par semaine</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-5xl font-bold text-white mb-2">{counts.satisfaction}%</div>
+                  <div className="text-blue-100 font-medium">Taux de satisfaction</div>
                 </div>
               </div>
-              <div className="mt-10 lg:mt-0">
-                <img
-                  className="rounded-lg shadow-lg"
-                  src="/images/team.jpg"
-                  alt="Notre équipe LATVIC"
-                />
+            </div>
+
+            {/* Avantages en grille */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {/* Expertise */}
+              <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+                <div className="w-16 h-16 mb-6 bg-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                  Expertise Certifiée
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  Une équipe rigoureusement formée aux normes internationales de sécurité
+                </p>
+                <ul className="space-y-3 text-gray-600">
+                  <li className="flex items-center">
+                    <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Formation continue
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Certifications internationales
+                  </li>
+                </ul>
+              </div>
+
+              {/* Réactivité */}
+              <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+                <div className="w-16 h-16 mb-6 bg-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                  Réactivité Immédiate
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  Intervention rapide et efficace 24/7 sur l'ensemble du territoire
+                </p>
+                <ul className="space-y-3 text-gray-600">
+                  <li className="flex items-center">
+                    <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Disponibilité 24/7
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Temps de réponse rapide
+                  </li>
+                </ul>
+              </div>
+
+              {/* Innovation */}
+              <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+                <div className="w-16 h-16 mb-6 bg-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                  Solutions Innovantes
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  Technologies de pointe et méthodes modernes de sécurisation
+                </p>
+                <ul className="space-y-3 text-gray-600">
+                  <li className="flex items-center">
+                    <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Équipements dernière génération
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Solutions personnalisées
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-20 bg-white">
+        <section className="py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-                Ce que nos clients disent
+            {/* En-tête */}
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Témoignages</span>
+              <h2 className="mt-3 text-4xl font-bold text-gray-900 sm:text-4xl">
+                La confiance de nos clients
               </h2>
-              <p className="mt-4 text-xl text-gray-600">
-                Découvrez les expériences de ceux qui nous font confiance
+              <div className="w-24 h-1 bg-blue-600 mx-auto my-6 rounded-full"></div>
+              <p className="text-xl text-gray-600">
+                Découvrez les expériences de ceux qui nous font confiance au quotidien
               </p>
             </div>
-            <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              <div className="bg-gray-50 rounded-lg p-8">
-                <div className="flex items-center mb-4">
-                  <img
-                    className="h-12 w-12 rounded-full object-cover"
-                    src="https://randomuser.me/api/portraits/women/32.jpg"
-                    alt="Sophie Martin"
-                  />
-                  <div className="ml-4">
-                    <h4 className="text-lg font-bold text-gray-900">Sophie Martin</h4>
-                    <p className="text-gray-600">Directrice Générale, Tech Corp</p>
+
+            {/* Grille de témoignages */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Témoignage 1 */}
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+                <div className="relative bg-white p-8 rounded-2xl shadow-lg transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300">
+                  <div className="flex items-center mb-6">
+                    <img
+                      className="h-14 w-14 rounded-full object-cover ring-4 ring-blue-50"
+                      src="https://randomuser.me/api/portraits/women/32.jpg"
+                      alt="Sophie Martin"
+                    />
+                    <div className="ml-4">
+                      <h4 className="text-lg font-bold text-gray-900">Sophie Martin</h4>
+                      <p className="text-blue-600">Directrice Générale, Tech Corp</p>
+                    </div>
+                  </div>
+                  <svg className="w-10 h-10 text-blue-100 absolute top-6 right-6" fill="currentColor" viewBox="0 0 32 32">
+                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                  </svg>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    "L'équipe de LATVIC a assuré la sécurité de notre événement d'entreprise avec un professionnalisme exemplaire. Leur attention aux détails et leur réactivité ont été remarquables."
+                  </p>
+                  <div className="flex items-center text-blue-600">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
                   </div>
                 </div>
-                <p className="text-gray-600">
-                  "L'équipe de LATVIC a assuré la sécurité de notre événement d'entreprise avec un professionnalisme exemplaire. Leur attention aux détails et leur réactivité ont été remarquables."
-                </p>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-8">
-                <div className="flex items-center mb-4">
-                  <img
-                    className="h-12 w-12 rounded-full object-cover"
-                    src="https://randomuser.me/api/portraits/men/45.jpg"
-                    alt="Jean Dubois"
-                  />
-                  <div className="ml-4">
-                    <h4 className="text-lg font-bold text-gray-900">Jean Dubois</h4>
-                    <p className="text-gray-600">Propriétaire, Hôtel Royal</p>
+              {/* Témoignage 2 */}
+              <div className="relative group mt-8 md:mt-0">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300"></div>
+                <div className="relative bg-white p-8 rounded-2xl shadow-lg transform rotate-1 group-hover:rotate-2 transition-transform duration-300">
+                  <div className="flex items-center mb-6">
+                    <img
+                      className="h-14 w-14 rounded-full object-cover ring-4 ring-blue-50"
+                      src="https://randomuser.me/api/portraits/men/45.jpg"
+                      alt="Jean Dubois"
+                    />
+                    <div className="ml-4">
+                      <h4 className="text-lg font-bold text-gray-900">Jean Dubois</h4>
+                      <p className="text-blue-600">Propriétaire, Hôtel Royal</p>
+                    </div>
+                  </div>
+                  <svg className="w-10 h-10 text-blue-100 absolute top-6 right-6" fill="currentColor" viewBox="0 0 32 32">
+                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                  </svg>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    "Depuis que nous travaillons avec LATVIC pour la sécurité de notre hôtel, nous avons constaté une nette amélioration de la satisfaction de nos clients. Une équipe fiable et professionnelle."
+                  </p>
+                  <div className="flex items-center text-blue-600">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
                   </div>
                 </div>
-                <p className="text-gray-600">
-                  "Depuis que nous travaillons avec LATVIC pour la sécurité de notre hôtel, nous avons constaté une nette amélioration de la satisfaction de nos clients. Une équipe fiable et professionnelle."
-                </p>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-8">
-                <div className="flex items-center mb-4">
-                  <img
-                    className="h-12 w-12 rounded-full object-cover"
-                    src="https://randomuser.me/api/portraits/women/68.jpg"
-                    alt="Marie Koné"
-                  />
-                  <div className="ml-4">
-                    <h4 className="text-lg font-bold text-gray-900">Marie Koné</h4>
-                    <p className="text-gray-600">Responsable Sécurité, Banque GNF</p>
+              {/* Témoignage 3 */}
+              <div className="relative group mt-8 md:mt-0">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+                <div className="relative bg-white p-8 rounded-2xl shadow-lg transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300">
+                  <div className="flex items-center mb-6">
+                    <img
+                      className="h-14 w-14 rounded-full object-cover ring-4 ring-blue-50"
+                      src="https://randomuser.me/api/portraits/women/68.jpg"
+                      alt="Marie Koné"
+                    />
+                    <div className="ml-4">
+                      <h4 className="text-lg font-bold text-gray-900">Marie Koné</h4>
+                      <p className="text-blue-600">Responsable Sécurité, Banque GNF</p>
+                    </div>
+                  </div>
+                  <svg className="w-10 h-10 text-blue-100 absolute top-6 right-6" fill="currentColor" viewBox="0 0 32 32">
+                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                  </svg>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    "Le service de transport de fonds de LATVIC est irréprochable. Leur équipe est toujours ponctuelle et hautement professionnelle. Une collaboration précieuse pour notre institution."
+                  </p>
+                  <div className="flex items-center text-blue-600">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
                   </div>
                 </div>
-                <p className="text-gray-600">
-                  "Le service de transport de fonds de LATVIC est irréprochable. Leur équipe est toujours ponctuelle et hautement professionnelle. Une collaboration précieuse pour notre institution."
-                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-                Contactez-nous
-              </h2>
-              <p className="mt-4 text-xl text-gray-600">
-                Notre équipe est à votre disposition pour répondre à vos questions
-              </p>
-            </div>
-            <div className="mt-16 max-w-lg mx-auto">
-              <form className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                    Nom complet
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                  />
-                </div>
-                <div>
-                  <button
-                    type="submit"
-                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                  >
-                    Envoyer
-                  </button>
-                </div>
-              </form>
-            </div>
+        {/* CTA Section */}
+        <section className="relative py-24 bg-gradient-to-br from-gray-900 to-blue-900 overflow-hidden">
+          {/* Cercles décoratifs */}
+          <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+          <div className="absolute top-0 right-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-4xl font-bold text-white mb-6">
+              Besoin de nos services ?
+            </h2>
+            <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+              Notre équipe d'experts est à votre disposition pour répondre à toutes vos questions en matière de sécurité
+            </p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center px-8 py-4 text-lg font-semibold rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1"
+            >
+              Contactez-nous
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
           </div>
         </section>
       </div>
