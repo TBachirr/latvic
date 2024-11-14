@@ -130,15 +130,15 @@ export default function Home() {
     <Layout>
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <div className="relative bg-gray-900 min-h-[90vh] flex items-center">
+        <div className="relative bg-black min-h-[90vh] flex items-center">
           {/* Background avec overlay amélioré */}
           <div className="absolute inset-0">
             <img
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover opacity-40"
               src="/security-bg.jpg"
               alt="Security background"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/80 to-gray-900/50"></div>
+            <div className="absolute inset-0 bg-black"></div>
             {/* Effet de particules ou motif */}
             <div className="absolute inset-0 opacity-10" 
               style={{ 
@@ -151,8 +151,8 @@ export default function Home() {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
             <div className="space-y-12 lg:space-y-16">
               {/* Badge animé */}
-              <div className="inline-flex items-center px-4 py-2 bg-blue-600/10 rounded-full text-blue-400 backdrop-blur-sm border border-blue-500/20 animate-pulse">
-                <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+              <div className="inline-flex items-center px-4 py-2 bg-[#FF0000]/10 rounded-full text-[#FF0000] backdrop-blur-sm border border-[#FF0000]/20 animate-pulse">
+                <span className="w-2 h-2 bg-[#FF0000] rounded-full mr-2"></span>
                 <span className="text-sm font-medium">Leader en sécurité en Guinée</span>
               </div>
 
@@ -160,7 +160,7 @@ export default function Home() {
               <div className="space-y-4">
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
                   Votre sécurité,{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+                  <span className="text-[#FF0000]">
                     notre priorité
                   </span>
                 </h1>
@@ -172,7 +172,7 @@ export default function Home() {
 
               {/* Boutons d'action */}
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                <a href="#contact" className="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-lg text-white bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 hover:-translate-y-1">
+                <a href="#contact" className="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-lg text-white bg-gradient-to-r from-[#FF0000] to-[#FF0000] shadow-lg hover:from-[#FF0000] hover:to-[#FF0000] transition-all duration-300 hover:-translate-y-1">
                   <span>Contactez-nous</span>
                   <svg className="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -196,13 +196,13 @@ export default function Home() {
         </div>
 
         {/* Services Section */}
-        <section id="services" className="py-24 bg-gradient-to-b from-gray-900 to-gray-800">
+        <section id="services" className="py-24 bg-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-20">
               <h2 className="text-4xl font-bold text-white mb-4">
                 Nos Services
               </h2>
-              <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
+              <div className="w-24 h-1 bg-[#FF0000] mx-auto mb-8"></div>
               <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                 Des solutions de sécurité professionnelles adaptées à vos besoins
               </p>
@@ -213,24 +213,24 @@ export default function Home() {
                 <Link
                   to="/services"
                   key={index}
-                  className="group relative overflow-hidden bg-gray-800 rounded-2xl p-8 hover:bg-gray-700 transition-all duration-300"
+                  className="group relative overflow-hidden bg-gray-950 rounded-2xl p-8 hover:bg-gray-900 transition-all duration-300"
                 >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-transparent rounded-bl-full transform translate-x-8 -translate-y-8"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#FF0000]/10 to-transparent rounded-bl-full transform translate-x-8 -translate-y-8"></div>
                   
                   <div className="relative z-10">
-                    <div className="text-blue-400 mb-6 group-hover:scale-110 transform transition-transform duration-300">
+                    <div className="text-[#FF0000] mb-6 group-hover:scale-110 transform transition-transform duration-300">
                       {service.icon}
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#FF0000] transition-colors duration-300">
                       {service.title}
                     </h3>
                     
-                    <p className="text-gray-300 mb-6">
+                    <p className="text-gray-400 mb-6">
                       {service.description}
                     </p>
                     
-                    <div className="flex items-center text-blue-400 font-medium group-hover:translate-x-2 transition-transform duration-300">
+                    <div className="flex items-center text-[#FF0000] font-medium group-hover:translate-x-2 transition-transform duration-300">
                       <span>En savoir plus</span>
                       <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -244,7 +244,7 @@ export default function Home() {
             <div className="mt-16 text-center">
               <Link
                 to="/services"
-                className="inline-flex items-center px-8 py-4 text-lg font-semibold rounded-full text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1"
+                className="inline-flex items-center px-8 py-4 text-lg font-semibold rounded-full text-white bg-[#FF0000] hover:bg-[#FF0000]/90 transition-all duration-300 transform hover:-translate-y-1"
               >
                 Découvrir tous nos services
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -261,9 +261,9 @@ export default function Home() {
             {/* En-tête avec titre et description */}
             <div className="text-center max-w-3xl mx-auto mb-20">
               <h2 className="text-4xl font-bold text-gray-900">
-                Pourquoi choisir <span className="text-blue-600">LATVIC</span> ?
+                Pourquoi choisir <span className="text-[#FF0000]">LATVIC</span> ?
               </h2>
-              <div className="w-24 h-1 bg-blue-600 mx-auto my-6 rounded-full"></div>
+              <div className="w-24 h-1 bg-[#FF0000] mx-auto my-6 rounded-full"></div>
               <p className="text-xl text-gray-600">
                 Une décennie d'excellence en sécurité, au service de votre tranquillité
               </p>
@@ -271,23 +271,23 @@ export default function Home() {
 
             {/* Statistiques en bande */}
             <div ref={statsRef} className="relative mb-24">
-              <div className="absolute inset-0 bg-blue-600 transform -skew-y-2"></div>
+              <div className="absolute inset-0 bg-black transform -skew-y-2"></div>
               <div className="relative grid grid-cols-2 md:grid-cols-4 gap-8 py-12 px-6">
                 <div className="text-center">
                   <div className="text-5xl font-bold text-white mb-2">{counts.years}+</div>
-                  <div className="text-blue-100 font-medium">Années d'expertise</div>
+                  <div className="text-gray-300 font-medium">Années d'expertise</div>
                 </div>
                 <div className="text-center">
                   <div className="text-5xl font-bold text-white mb-2">{counts.clients}+</div>
-                  <div className="text-blue-100 font-medium">Clients satisfaits</div>
+                  <div className="text-gray-300 font-medium">Clients satisfaits</div>
                 </div>
                 <div className="text-center">
                   <div className="text-5xl font-bold text-white mb-2">{counts.support}/7</div>
-                  <div className="text-blue-100 font-medium">Jours par semaine</div>
+                  <div className="text-gray-300 font-medium">Jours par semaine</div>
                 </div>
                 <div className="text-center">
                   <div className="text-5xl font-bold text-white mb-2">{counts.satisfaction}%</div>
-                  <div className="text-blue-100 font-medium">Taux de satisfaction</div>
+                  <div className="text-gray-300 font-medium">Taux de satisfaction</div>
                 </div>
               </div>
             </div>
@@ -296,12 +296,12 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               {/* Expertise */}
               <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
-                <div className="w-16 h-16 mb-6 bg-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 mb-6 bg-[#FF0000] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#FF0000] transition-colors">
                   Expertise Certifiée
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-6">
@@ -309,13 +309,13 @@ export default function Home() {
                 </p>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-center">
-                    <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#FF0000] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     Formation continue
                   </li>
                   <li className="flex items-center">
-                    <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#FF0000] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     Certifications internationales
@@ -325,12 +325,12 @@ export default function Home() {
 
               {/* Réactivité */}
               <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
-                <div className="w-16 h-16 mb-6 bg-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 mb-6 bg-[#FF0000] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#FF0000] transition-colors">
                   Réactivité Immédiate
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-6">
@@ -338,13 +338,13 @@ export default function Home() {
                 </p>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-center">
-                    <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#FF0000] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     Disponibilité 24/7
                   </li>
                   <li className="flex items-center">
-                    <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#FF0000] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     Temps de réponse rapide
@@ -354,12 +354,12 @@ export default function Home() {
 
               {/* Innovation */}
               <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
-                <div className="w-16 h-16 mb-6 bg-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 mb-6 bg-[#FF0000] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#FF0000] transition-colors">
                   Solutions Innovantes
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-6">
@@ -367,13 +367,13 @@ export default function Home() {
                 </p>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-center">
-                    <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#FF0000] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     Équipements dernière génération
                   </li>
                   <li className="flex items-center">
-                    <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#FF0000] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     Solutions personnalisées
@@ -403,7 +403,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Témoignage 1 */}
               <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#FF0000] to-[#4A5568] rounded-2xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300"></div>
                 <div className="relative bg-white p-8 rounded-2xl shadow-lg transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300">
                   <div className="flex items-center mb-6">
                     <img
@@ -444,7 +444,7 @@ export default function Home() {
 
               {/* Témoignage 2 */}
               <div className="relative group mt-8 md:mt-0">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#FF0000] to-[#4A5568] rounded-2xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300"></div>
                 <div className="relative bg-white p-8 rounded-2xl shadow-lg transform rotate-1 group-hover:rotate-2 transition-transform duration-300">
                   <div className="flex items-center mb-6">
                     <img
@@ -485,7 +485,7 @@ export default function Home() {
 
               {/* Témoignage 3 */}
               <div className="relative group mt-8 md:mt-0">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#FF0000] to-[#4A5568] rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
                 <div className="relative bg-white p-8 rounded-2xl shadow-lg transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300">
                   <div className="flex items-center mb-6">
                     <img

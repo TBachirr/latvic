@@ -25,20 +25,22 @@ export default function Layout({ children }) {
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      {/* Navbar */}
-      <nav className="bg-gray-900 fixed w-full z-50">
+      {/* Navbar - Changement des couleurs */}
+      <nav className="bg-black fixed w-full z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Link to="/" className="text-white text-xl font-bold">LATVIC</Link>
+                <Link to="/" className="text-white text-xl font-bold">
+                  LATVIC
+                </Link>
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  <Link to="/" className="text-white hover:bg-gray-700 px-3 py-2 rounded-md">Accueil</Link>
-                  <Link to="/services" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md">Services</Link>
-                  <Link to="/about" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md">À propos</Link>
-                  <Link to="/contact" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md">Contact</Link>
+                  <Link to="/" className="text-white hover:bg-[#FF0000] px-3 py-2 rounded-md transition-colors duration-300">Accueil</Link>
+                  <Link to="/services" className="text-gray-300 hover:bg-[#FF0000] hover:text-white px-3 py-2 rounded-md transition-colors duration-300">Services</Link>
+                  <Link to="/about" className="text-gray-300 hover:bg-[#FF0000] hover:text-white px-3 py-2 rounded-md transition-colors duration-300">À propos</Link>
+                  <Link to="/contact" className="text-gray-300 hover:bg-[#FF0000] hover:text-white px-3 py-2 rounded-md transition-colors duration-300">Contact</Link>
                 </div>
               </div>
             </div>
@@ -46,7 +48,7 @@ export default function Layout({ children }) {
             <div className="md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-[#FF0000] focus:outline-none transition-colors duration-300"
               >
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   {isOpen ? (
@@ -63,10 +65,10 @@ export default function Layout({ children }) {
         {isOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link to="/" className="text-white block px-3 py-2 rounded-md">Accueil</Link>
-              <Link to="/services" className="text-gray-300 block px-3 py-2 rounded-md">Services</Link>
-              <Link to="/about" className="text-gray-300 block px-3 py-2 rounded-md">À propos</Link>
-              <Link to="/contact" className="text-gray-300 block px-3 py-2 rounded-md">Contact</Link>
+              <Link to="/" className="text-white block px-3 py-2 rounded-md hover:bg-[#FF0000] transition-colors duration-300">Accueil</Link>
+              <Link to="/services" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md hover:bg-[#FF0000] transition-colors duration-300">Services</Link>
+              <Link to="/about" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md hover:bg-[#FF0000] transition-colors duration-300">À propos</Link>
+              <Link to="/contact" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md hover:bg-[#FF0000] transition-colors duration-300">Contact</Link>
             </div>
           </div>
         )}
