@@ -131,7 +131,7 @@ export default function Home() {
     <Layout>
       <div className="min-h-screen bg-white">
         {/* Wrapper pour Hero + Services avec un seul fond */}
-        <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+        <div className="bg-black">
           {/* Hero Section */}
           <div className="relative min-h-screen flex items-center overflow-hidden">
             {/* Cercles décoratifs du Hero - Ajout d'animations */}
@@ -285,54 +285,26 @@ export default function Home() {
                   >
                     <Link
                       to="/services"
-                      className="group relative overflow-hidden bg-gray-900/90 rounded-2xl p-8 hover:bg-gray-800 transition-all duration-300 block"
+                      className="group relative overflow-hidden rounded-2xl p-8 transition-all duration-300 block"
                     >
-                      <motion.div
-                        initial={{ scale: 0.8, opacity: 0 }}
-                        whileInView={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-                        viewport={{ once: true }}
-                        className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-600/10 to-transparent rounded-bl-full transform translate-x-8 -translate-y-8"
-                      ></motion.div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black"></div>
                       
                       <div className="relative z-10">
-                        <motion.div
-                          whileHover={{ scale: 1.1, rotate: 5 }}
-                          transition={{ type: "spring", stiffness: 300 }}
-                          className="text-red-600 mb-6 group-hover:scale-110 transform transition-transform duration-300"
-                        >
+                        <div className="text-red-600 mb-4 transform group-hover:translate-x-2 transition-transform duration-300">
                           {service.icon}
-                        </motion.div>
-                        
-                        <motion.h3
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
-                          viewport={{ once: true }}
-                          className="text-2xl font-bold text-white mb-4 group-hover:text-red-600 transition-colors duration-300"
-                        >
+                        </div>
+                        <h3 className="text-xl font-bold text-white mb-2">
                           {service.title}
-                        </motion.h3>
-                        
-                        <motion.p
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
-                          viewport={{ once: true }}
-                          className="text-gray-400 mb-6"
-                        >
+                        </h3>
+                        <p className="text-gray-300 mb-6">
                           {service.description}
-                        </motion.p>
-                        
-                        <motion.div
-                          whileHover={{ x: 10 }}
-                          className="flex items-center text-red-600 font-medium group-hover:translate-x-2 transition-transform duration-300"
-                        >
+                        </p>
+                        <div className="flex items-center text-red-600 font-medium group-hover:translate-x-2 transition-transform duration-300">
                           <span>En savoir plus</span>
                           <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                           </svg>
-                        </motion.div>
+                        </div>
                       </div>
                     </Link>
                   </motion.div>

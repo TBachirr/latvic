@@ -2,6 +2,9 @@ import React from 'react';
 import Layout from '../components/Layout';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function About() {
   const values = [
@@ -45,6 +48,29 @@ export default function About() {
       role: "Chef de la Formation",
       image: "/images/logo.jpg",
       description: "Ancien instructeur militaire"
+    }
+  ];
+
+  const portfolioImages = [
+    {
+      title: "Protection VIP",
+      description: "Service de protection rapprochée par notre équipe d'élite",
+      image: "/images/team.jpg"
+    },
+    {
+      title: "Sécurité Événementielle",
+      description: "Sécurisation professionnelle de vos événements",
+      image: "/images/logo.jpg"
+    },
+    {
+      title: "Formation Spécialisée",
+      description: "Notre équipe lors d'une session de formation tactique",
+      image: "/images/team.jpg"
+    },
+    {
+      title: "Services Corporate",
+      description: "Protection des installations et du personnel",
+      image: "/images/logo.jpg"
     }
   ];
 
@@ -304,6 +330,113 @@ export default function About() {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Portfolio Section */}
+        <section className="py-24 bg-black relative overflow-hidden">
+          {/* Cercles décoratifs */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 0.1, scale: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="absolute top-0 left-0 w-72 h-72 bg-red-600 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"
+          ></motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 0.1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="absolute bottom-0 right-0 w-72 h-72 bg-red-600 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"
+          ></motion.div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl font-bold text-white mb-6">
+                Nos Réalisations
+              </h2>
+              <p className="text-xl text-gray-300">
+                Quelques moments marquants avec nos clients prestigieux
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <Slider
+                dots={false}
+                infinite={true}
+                speed={800}
+                slidesToShow={1}
+                slidesToScroll={1}
+                autoplay={true}
+                autoplaySpeed={5000}
+                pauseOnHover={true}
+                arrows={true}
+                className="portfolio-slider"
+                fade={true}
+              >
+                {portfolioImages.map((item, index) => (
+                  <div key={index} className="relative px-4 py-8">
+                    <div className="relative max-w-5xl mx-auto">
+                      {/* Fond décoratif */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-gray-900/20 rounded-3xl transform rotate-1"></div>
+                      
+                      {/* Contenu principal */}
+                      <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl overflow-hidden shadow-2xl">
+                        <div className="flex flex-col lg:flex-row">
+                          {/* Image */}
+                          <div className="lg:w-2/3 relative overflow-hidden">
+                            <div className="aspect-[16/9]">
+                              <motion.img
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ duration: 0.4 }}
+                                src={item.image}
+                                alt={item.title}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            {/* Overlay gradient subtil */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+                          </div>
+
+                          {/* Texte */}
+                          <div className="lg:w-1/3 p-8 lg:p-12 flex flex-col justify-center">
+                            <motion.div
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.6 }}
+                              viewport={{ once: true }}
+                            >
+                              <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
+                              <p className="text-gray-300 text-lg leading-relaxed">{item.description}</p>
+                              <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="mt-8 px-6 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300"
+                              >
+                                En savoir plus
+                              </motion.button>
+                            </motion.div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+            </motion.div>
           </div>
         </section>
 
