@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/latvic/static/css/main.1b9b6d76.css",
-    "main.js": "/latvic/static/js/main.b2a91f21.js",
+    "main.js": "/latvic/static/js/main.d9e2ffd9.js",
     "static/js/453.e825870b.chunk.js": "/latvic/static/js/453.e825870b.chunk.js",
     "static/media/slick.svg": "/latvic/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/latvic/static/media/slick.a4e97f5a2a64f0ab1323.eot",
@@ -9,11 +9,11 @@
     "static/media/slick.woff": "/latvic/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/latvic/index.html",
     "main.1b9b6d76.css.map": "/latvic/static/css/main.1b9b6d76.css.map",
-    "main.b2a91f21.js.map": "/latvic/static/js/main.b2a91f21.js.map",
+    "main.d9e2ffd9.js.map": "/latvic/static/js/main.d9e2ffd9.js.map",
     "453.e825870b.chunk.js.map": "/latvic/static/js/453.e825870b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1b9b6d76.css",
-    "static/js/main.b2a91f21.js"
+    "static/js/main.d9e2ffd9.js"
   ]
 }
