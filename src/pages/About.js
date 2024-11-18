@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import getImagePath from '../utils/imagePath';
 
 export default function About() {
   const values = [
@@ -34,19 +35,19 @@ export default function About() {
     {
       name: "Jean Dupont",
       role: "Directeur Général",
-      image: "/images/logo.jpg",
+      image: getImagePath('/images/logo.jpg'),
       description: "20 ans d'expérience dans la sécurité"
     },
     {
       name: "Marie Martin",
       role: "Directrice des Opérations",
-      image: "/images/logo.jpg",
+      image: getImagePath('/images/logo.jpg'),
       description: "Expert en gestion de la sécurité"
     },
     {
       name: "Pierre Dubois",
       role: "Chef de la Formation",
-      image: "/images/logo.jpg",
+      image: getImagePath('/images/logo.jpg'),
       description: "Ancien instructeur militaire"
     }
   ];
@@ -55,22 +56,22 @@ export default function About() {
     {
       title: "Protection VIP",
       description: "Service de protection rapprochée par notre équipe d'élite",
-      image: "/images/team.jpg"
+      image: getImagePath('/images/team.jpg')
     },
     {
       title: "Sécurité Événementielle",
       description: "Sécurisation professionnelle de vos événements",
-      image: "/images/logo.jpg"
+      image: getImagePath('/images/logo.jpg')
     },
     {
       title: "Formation Spécialisée",
       description: "Notre équipe lors d'une session de formation tactique",
-      image: "/images/team.jpg"
+      image: getImagePath('/images/team.jpg')
     },
     {
       title: "Services Corporate",
       description: "Protection des installations et du personnel",
-      image: "/images/logo.jpg"
+      image: getImagePath('/images/logo.jpg')
     }
   ];
 
@@ -179,7 +180,7 @@ export default function About() {
                   <motion.img
                     whileHover={{ rotate: -2 }}
                     className="relative rounded-2xl shadow-xl w-full h-[400px] object-cover transform -rotate-1 transition-transform duration-300"
-                    src="/images/logo.jpg"
+                    src={getImagePath('/images/logo.jpg')}
                     alt="Histoire de LATVIC"
                   />
                 </div>
