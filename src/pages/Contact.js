@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Layout from '../components/Layout';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,10 +11,44 @@ export default function Contact() {
     subject: '',
     message: ''
   });
+  
+  const [status, setStatus] = useState({
+    submitting: false,
+    success: false,
+    error: false,
+    message: ''
+  });
+  
+  const form = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setStatus({ submitting: true, success: false, error: false, message: '' });
+    
+    emailjs.sendForm('service_nlmh3sw', 'template_bjhq25o', form.current, 'jJnNE_qcXzT4AeXnp')
+      .then((result) => {
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+        setStatus({
+          submitting: false,
+          success: true,
+          error: false,
+          message: 'Votre message a été envoyé avec succès!'
+        });
+      }, (error) => {
+        console.error('Erreur:', error);
+        setStatus({
+          submitting: false,
+          success: false,
+          error: true,
+          message: 'Une erreur est survenue. Veuillez réessayer.'
+        });
+      });
   };
 
   const handleChange = (e) => {
@@ -183,7 +218,26 @@ export default function Contact() {
                   whileHover={{ rotate: -1 }}
                   className="relative bg-white rounded-2xl shadow-xl p-8 transform -rotate-1"
                 >
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Message de statut */}
+                  {status.success && (
+                    <div className="mb-6 p-4 bg-green-50 border border-green-500 text-green-700 rounded-lg flex items-center">
+                      <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {status.message}
+                    </div>
+                  )}
+                  
+                  {status.error && (
+                    <div className="mb-6 p-4 bg-red-50 border border-red-500 text-red-700 rounded-lg flex items-center">
+                      <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      {status.message}
+                    </div>
+                  )}
+                  
+                  <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -272,14 +326,17 @@ export default function Contact() {
 
                     <motion.button
                       type="submit"
+                      disabled={status.submitting}
                       whileHover={{ scale: 1.02, y: -2 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg text-white bg-red-600 hover:bg-red-700 transition-all duration-300"
+                      className="w-full flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg text-white bg-red-600 hover:bg-red-700 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
-                      Envoyer le message
-                      <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
+                      {status.submitting ? 'Envoi en cours...' : 'Envoyer le message'}
+                      {!status.submitting && (
+                        <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      )}
                     </motion.button>
                   </form>
                 </motion.div>
