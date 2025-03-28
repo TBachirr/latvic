@@ -81,7 +81,7 @@ export default function Layout({ children }) {
       <footer className="bg-black">
         {/* Section principale */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-12">
             {/* À propos */}
             <div className="space-y-6">
               <div className="flex items-center">
@@ -161,29 +161,6 @@ export default function Layout({ children }) {
                   <span className="text-gray-400">+224 XX XX XX XX</span>
                 </li>
               </ul>
-            </div>
-
-            {/* Newsletter */}
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-6">Newsletter</h3>
-              <p className="text-gray-400 mb-4">Restez informé de nos actualités et services</p>
-              <form className="space-y-4">
-                <div className="flex">
-                  <input
-                    type="email"
-                    placeholder="Votre email"
-                    className="flex-1 bg-gray-800 text-white px-4 py-2 rounded-l-lg focus:outline-none focus:ring-1 focus:ring-red-500"
-                  />
-                  <button
-                    type="submit"
-                    className="bg-red-600 text-white px-4 py-2 rounded-r-lg hover:bg-red-700 transition-colors"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </button>
-                </div>
-              </form>
             </div>
           </div>
         </div>
