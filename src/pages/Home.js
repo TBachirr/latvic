@@ -15,6 +15,8 @@ export default function Home() {
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
+    const currentStatsRef = statsRef.current; // Capture la référence actuelle
+    
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
@@ -25,14 +27,14 @@ export default function Home() {
       },
       { threshold: 0.5 }
     );
-
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
+  
+    if (currentStatsRef) {
+      observer.observe(currentStatsRef);
     }
-
+  
     return () => {
-      if (statsRef.current) {
-        observer.unobserve(statsRef.current);
+      if (currentStatsRef) { // Utilise la référence capturée
+        observer.unobserve(currentStatsRef);
       }
     };
   }, [hasAnimated]);
