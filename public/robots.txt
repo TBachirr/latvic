@@ -1,3 +1,9 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+Sitemap: https://latvic.com/sitemap.xml
+
+# Optimise le crawl pour les ressources statiques
+Disallow: /static/js/
+Disallow: /static/css/
+Disallow: /static/media/
