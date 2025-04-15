@@ -408,7 +408,6 @@ export default function Contact() {
                     ref={form} 
                     onSubmit={handleSubmit} 
                     className="space-y-6"
-                    role="form"
                     aria-label="Formulaire de contact"
                   >
                     <motion.div

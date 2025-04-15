@@ -216,7 +216,7 @@ export default function Home() {
     }, 7000);
     
     return () => clearInterval(timer);
-  }, []);
+  }, [testimonials.length]);
 
   return (
     <Layout>
