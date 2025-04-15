@@ -318,7 +318,7 @@ export default function Contact() {
                         </div>
                         <div>
                           <p className="text-red-600 text-sm font-medium">Téléphone</p>
-                          <p className="text-gray-900 font-medium">+224 XX XX XX XX</p>
+                          <p className="text-gray-900 font-medium whitespace-nowrap">625-46-23-35/626-66-19-68</p>
                         </div>
                       </div>
 
@@ -331,7 +331,7 @@ export default function Contact() {
                         </div>
                         <div>
                           <p className="text-red-600 text-sm font-medium">Email</p>
-                          <p className="text-gray-900 font-medium">contact@latvic.com</p>
+                          <p className="text-gray-900 font-medium">latvicprotection@gmail.com</p>
                         </div>
                       </div>
                     </div>
@@ -473,7 +473,7 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={handleChange}
                         className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 transition-colors"
-                        placeholder="+224 XX XX XX XX"
+                        placeholder="625-46-23-35"
                       />
                     </div>
 

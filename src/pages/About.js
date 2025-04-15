@@ -150,7 +150,7 @@ export default function About() {
                   viewport={{ once: true }}
                   className="text-lg text-gray-600 mb-6"
                 >
-                  Fondée en 2013, LATVIC est née de la vision de créer une entreprise de sécurité 
+                  Fondée en 2024, LATVIC est née de la vision de créer une entreprise de sécurité 
                   qui place l'excellence et l'innovation au cœur de ses services.
                 </motion.p>
                 <motion.p
@@ -189,23 +189,7 @@ export default function About() {
         </section>
 
         {/* Valeurs Section */}
-        <section className="py-24 bg-black relative overflow-hidden">
-          {/* Cercles décoratifs */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 0.1, scale: 1 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="absolute top-0 left-0 w-72 h-72 bg-red-600 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"
-          ></motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 0.1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="absolute top-0 right-0 w-72 h-72 bg-red-600 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"
-          ></motion.div>
-
+        <section className="py-24 bg-white relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -214,10 +198,10 @@ export default function About() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl font-bold text-white mb-6">
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">
                 Nos Valeurs
               </h2>
-              <p className="text-xl text-gray-300">
+              <p className="text-xl text-gray-600">
                 Les principes qui guident nos actions quotidiennes
               </p>
             </motion.div>
@@ -231,13 +215,6 @@ export default function About() {
                   viewport={{ once: true }}
                   className="group relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-                    viewport={{ once: true }}
-                    className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-red-600/20 to-transparent rounded-bl-full"
-                  ></motion.div>
                   <div className="relative z-10 text-center">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}

@@ -242,22 +242,6 @@ export default function Home() {
 
           {/* Services Section - Mise à jour du background */}
           <section id="services" className="relative pt-24 pb-24 bg-gradient-to-b from-gray-50 to-gray-100">
-            {/* Cercles décoratifs des Services */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 0.2 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: true }}
-              className="absolute top-1/4 left-0 w-72 h-72 bg-red-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"
-            ></motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 0.2 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="absolute top-1/4 right-0 w-72 h-72 bg-red-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"
-            ></motion.div>
-
             {/* Contenu des Services */}
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div

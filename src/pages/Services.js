@@ -141,15 +141,6 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="group relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
               >
-                {/* Cercle décoratif */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-                  viewport={{ once: true }}
-                  className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-600/20 to-transparent rounded-bl-full"
-                ></motion.div>
-                
                 <div className="relative z-10">
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
