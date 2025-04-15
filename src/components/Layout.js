@@ -1,5 +1,6 @@
 import React, { useState, useLayoutEffect, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import SecurityMonitor from './SecurityMonitor';
 
 export default function Layout({ children }) {
   const location = useLocation();
@@ -42,6 +43,9 @@ export default function Layout({ children }) {
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
+      {/* Intégrer le moniteur de sécurité */}
+      <SecurityMonitor />
+      
       {/* Navbar - Changement des couleurs */}
       <nav className="bg-black fixed w-full z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

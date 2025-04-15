@@ -1,13 +1,25 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Layout from '../components/Layout';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+
+// Configuration EmailJS
+const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_nlmh3sw';
+const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_bjhq25o';
+const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'jJnNE_qcXzT4AeXnp';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
+    subject: '',
+    message: ''
+  });
+  
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
     subject: '',
     message: ''
   });
@@ -19,13 +31,138 @@ export default function Contact() {
     message: ''
   });
   
+  const [submitCount, setSubmitCount] = useState(0);
+  const [lastSubmitTime, setLastSubmitTime] = useState(0);
+  
   const form = useRef();
+
+  // Nettoyage des données d'entrée pour prévenir les attaques XSS
+  const sanitizeInput = (input) => {
+    if (typeof input !== 'string') return '';
+    return input
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#x27;')
+      .replace(/\//g, '&#x2F;');
+  };
+
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = {
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    };
+
+    // Rate limiting - Empêcher les soumissions trop fréquentes
+    const now = Date.now();
+    if (now - lastSubmitTime < 10000) { // 10 secondes minimum entre les soumissions
+      setStatus({
+        submitting: false,
+        success: false,
+        error: true,
+        message: 'Veuillez attendre quelques secondes avant de réessayer.'
+      });
+      return false;
+    }
+
+    // Validation du nom avec sécurité renforcée
+    if (!formData.name.trim()) {
+      newErrors.name = 'Le nom est requis';
+      isValid = false;
+    } else if (formData.name.length > 100) {
+      newErrors.name = 'Le nom est trop long (100 caractères maximum)';
+      isValid = false;
+    } else if (!/^[a-zA-ZÀ-ÿ\s'-]{2,}$/.test(formData.name)) {
+      newErrors.name = 'Le nom contient des caractères non autorisés';
+      isValid = false;
+    }
+
+    // Validation de l'email avec sécurité renforcée
+    if (!formData.email.trim()) {
+      newErrors.email = "L'email est requis";
+      isValid = false;
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
+      newErrors.email = "Format d'email invalide";
+      isValid = false;
+    } else if (formData.email.length > 100) {
+      newErrors.email = "L'email est trop long (100 caractères maximum)";
+      isValid = false;
+    }
+
+    // Validation du téléphone (optionnel mais validé si présent)
+    if (formData.phone.trim() && !/^[+]?[0-9\s-]{8,15}$/.test(formData.phone)) {
+      newErrors.phone = "Format de numéro de téléphone invalide";
+      isValid = false;
+    }
+
+    // Validation du sujet
+    if (!formData.subject.trim()) {
+      newErrors.subject = 'Le sujet est requis';
+      isValid = false;
+    } else if (formData.subject.length > 200) {
+      newErrors.subject = 'Le sujet est trop long (200 caractères maximum)';
+      isValid = false;
+    }
+
+    // Validation du message
+    if (!formData.message.trim()) {
+      newErrors.message = 'Le message est requis';
+      isValid = false;
+    } else if (formData.message.length > 5000) {
+      newErrors.message = 'Le message est trop long (5000 caractères maximum)';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
+    // Limite le nombre de soumissions à 5 par session
+    if (submitCount >= 5) {
+      setStatus({
+        submitting: false,
+        success: false,
+        error: true,
+        message: 'Nombre maximum de soumissions atteint. Veuillez réessayer plus tard.'
+      });
+      return;
+    }
+    
     setStatus({ submitting: true, success: false, error: false, message: '' });
     
-    emailjs.sendForm('service_nlmh3sw', 'template_bjhq25o', form.current, 'jJnNE_qcXzT4AeXnp')
+    // Nettoyer les données avant l'envoi
+    const sanitizedData = {
+      name: sanitizeInput(formData.name),
+      email: sanitizeInput(formData.email),
+      phone: sanitizeInput(formData.phone),
+      subject: sanitizeInput(formData.subject),
+      message: sanitizeInput(formData.message)
+    };
+
+    // Remplacer les valeurs des champs du formulaire par les données nettoyées
+    const formElement = form.current;
+    formElement.querySelector('[name="name"]').value = sanitizedData.name;
+    formElement.querySelector('[name="email"]').value = sanitizedData.email;
+    formElement.querySelector('[name="phone"]').value = sanitizedData.phone;
+    formElement.querySelector('[name="subject"]').value = sanitizedData.subject;
+    formElement.querySelector('[name="message"]').value = sanitizedData.message;
+    
+    emailjs.sendForm(
+      EMAILJS_SERVICE_ID, 
+      EMAILJS_TEMPLATE_ID, 
+      form.current, 
+      EMAILJS_PUBLIC_KEY
+    )
       .then((result) => {
         setFormData({
           name: '',
@@ -38,8 +175,11 @@ export default function Contact() {
           submitting: false,
           success: true,
           error: false,
-          message: 'Votre message a été envoyé avec succès!'
+          message: 'Message envoyé avec succès!'
         });
+        // Mettre à jour le compteur de soumissions et le temps de la dernière soumission
+        setSubmitCount(prev => prev + 1);
+        setLastSubmitTime(Date.now());
       }, (error) => {
         console.error('Erreur:', error);
         setStatus({
@@ -52,11 +192,38 @@ export default function Contact() {
   };
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    // Limitation de la longueur des entrées pour prévenir les attaques par débordement
+    const maxLengths = {
+      name: 100,
+      email: 100,
+      phone: 20,
+      subject: 200,
+      message: 5000
+    };
+    
+    const truncatedValue = value.slice(0, maxLengths[name] || 100);
+    
+    setFormData(prev => ({
+      ...prev,
+      [name]: truncatedValue
+    }));
+    
+    // Réinitialiser l'erreur du champ modifié
+    setErrors(prev => ({
+      ...prev,
+      [name]: ''
+    }));
   };
+
+  // Empêcher le stockage des données sensibles dans l'historique du navigateur
+  useEffect(() => {
+    return () => {
+      if (window.history.replaceState) {
+        window.history.replaceState(null, document.title, window.location.pathname);
+      }
+    };
+  }, []);
 
   return (
     <Layout>
@@ -237,7 +404,13 @@ export default function Contact() {
                     </div>
                   )}
                   
-                  <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+                  <form 
+                    ref={form} 
+                    onSubmit={handleSubmit} 
+                    className="space-y-6"
+                    role="form"
+                    aria-label="Formulaire de contact"
+                  >
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -258,7 +431,13 @@ export default function Contact() {
                           onChange={handleChange}
                           className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 transition-colors"
                           placeholder="John Doe"
+                          aria-describedby={errors.name ? "name-error" : undefined}
                         />
+                        {errors.name && (
+                          <p id="name-error" className="mt-1 text-sm text-red-600">
+                            {errors.name}
+                          </p>
+                        )}
                       </div>
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">
@@ -273,7 +452,13 @@ export default function Contact() {
                           onChange={handleChange}
                           className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 transition-colors"
                           placeholder="john@example.com"
+                          aria-describedby={errors.email ? "email-error" : undefined}
                         />
+                        {errors.email && (
+                          <p id="email-error" className="mt-1 text-sm text-red-600">
+                            {errors.email}
+                          </p>
+                        )}
                       </div>
                     </motion.div>
 
@@ -305,7 +490,13 @@ export default function Contact() {
                         onChange={handleChange}
                         className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 transition-colors"
                         placeholder="Comment pouvons-nous vous aider ?"
+                        aria-describedby={errors.subject ? "subject-error" : undefined}
                       />
+                      {errors.subject && (
+                        <p id="subject-error" className="mt-1 text-sm text-red-600">
+                          {errors.subject}
+                        </p>
+                      )}
                     </div>
 
                     <div>
@@ -321,7 +512,13 @@ export default function Contact() {
                         onChange={handleChange}
                         className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 transition-colors"
                         placeholder="Décrivez votre besoin..."
+                        aria-describedby={errors.message ? "message-error" : undefined}
                       />
+                      {errors.message && (
+                        <p id="message-error" className="mt-1 text-sm text-red-600">
+                          {errors.message}
+                        </p>
+                      )}
                     </div>
 
                     <motion.button

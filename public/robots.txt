@@ -1,7 +1,34 @@
 # https://www.robotstxt.org/robotstxt.html
+# Permet à tous les robots d'indexer les pages publiques
 User-agent: *
-Allow: /
-Sitemap: https://latvic.org/sitemap.xml
+Allow: /$
+Allow: /about$
+Allow: /services$
+Allow: /contact$
+
+# Interdire l'accès à toutes les autres pages
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*?
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.json$
+
+# Bloquer les crawlers agressifs connus
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Localisation du sitemap
+Sitemap: https://latvic.com/sitemap.xml
+
+# Fréquence de crawl
+Crawl-delay: 10
 
 # Optimise le crawl pour les ressources statiques
 Disallow: /static/js/
