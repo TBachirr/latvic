@@ -60,8 +60,8 @@ export default function Home() {
     const stepDuration = duration / steps;
 
     const targetCounts = {
-      years: 10,
-      clients: 500,
+      years: 35,
+      clients: 200,
       support: 24,
       satisfaction: 100
     };
@@ -278,8 +278,8 @@ export default function Home() {
                       transition={{ duration: 0.8, delay: 0.6 }}
                       className="mt-6 text-xl text-gray-300 max-w-3xl leading-relaxed"
                     >
-                      Depuis plus de 10 ans, LATVIC assure la sécurité des entreprises et particuliers 
-                      en Guinée avec un taux de satisfaction client de 100%.
+                      Créée en 2024, LATVIC s'appuie sur plus de 35 ans d'expérience cumulée de ses dirigeants dans le domaine de la sécurité
+                      en Guinée.
                     </motion.p>
                   </div>
 
@@ -882,19 +882,19 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="mt-8 flex justify-between">
+                <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:justify-between">
                   <Link 
                     to="/contact"
-                    className="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                    className="inline-flex items-center justify-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
                   >
-                    Demander un devis
+                    Contactez-nous
                     <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </Link>
                   <Link 
                     to="/services"
-                    className="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     Tous nos services
                   </Link>

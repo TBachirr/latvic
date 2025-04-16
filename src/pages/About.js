@@ -135,7 +135,7 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="mt-4 text-xl text-gray-300 max-w-3xl mx-auto"
             >
-              Plus de 10 ans d'expertise dans la sécurité en Guinée
+              Plus de 35 ans d'expertise cumulée de nos dirigeants dans la sécurité en Guinée
             </motion.p>
           </div>
         </div>
