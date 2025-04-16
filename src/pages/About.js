@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import SEO from '../components/SEO';
 
 export default function About() {
   const values = [
@@ -92,6 +93,10 @@ export default function About() {
 
   return (
     <Layout>
+      <SEO 
+        title="À Propos" 
+        description="Découvrez LATVIC, entreprise de sécurité fondée en 2024, s'appuyant sur 35+ années d'expertise cumulée de ses dirigeants en sécurité en Guinée."
+      />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
         <div className="relative min-h-[60vh] bg-black flex items-center overflow-hidden">

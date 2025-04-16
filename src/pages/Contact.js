@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Layout from '../components/Layout';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import SEO from '../components/SEO';
 
 // Configuration EmailJS
 const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_nlmh3sw';
@@ -227,6 +228,10 @@ export default function Contact() {
 
   return (
     <Layout>
+      <SEO 
+        title="Contact" 
+        description="Contactez LATVIC pour vos besoins en sécurité en Guinée. Notre équipe d'experts est à votre écoute pour vous offrir des solutions personnalisées."
+      />
       <div className="min-h-screen">
         {/* Hero Section */}
         <div className="relative bg-black py-24 overflow-hidden">

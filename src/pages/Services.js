@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 export default function Services() {
   const services = [
@@ -106,6 +107,10 @@ export default function Services() {
 
   return (
     <Layout>
+      <SEO 
+        title="Nos Services de Sécurité" 
+        description="Des solutions de sécurité professionnelles adaptées à vos besoins. LATVIC, créée en 2024, vous offre son expertise avec plus de 35 ans d'expérience cumulée de ses dirigeants."
+      />
       <div className="min-h-screen bg-white">
         {/* Hero Section avec fond noir et cercles décoratifs */}
         <div className="relative bg-black py-24 overflow-hidden">

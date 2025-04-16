@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Layout from '../components/Layout';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEO from '../components/SEO';
 
 export default function Home() {
   const [counts, setCounts] = useState({
@@ -220,6 +221,10 @@ export default function Home() {
 
   return (
     <Layout>
+      <SEO 
+        title="Accueil" 
+        description="LATVIC, créée en 2024, s'appuie sur plus de 35 ans d'expérience cumulée de ses dirigeants dans le domaine de la sécurité en Guinée. Votre sécurité, notre priorité."
+      />
       <div className="min-h-screen bg-white">
         {/* Wrapper pour Hero + Services avec un seul fond */}
         <div className="bg-black">
