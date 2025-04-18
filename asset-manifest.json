@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7289d52c.css",
+    "main.js": "/static/js/main.49af494f.js",
+    "static/js/297.44ce4a27.chunk.js": "/static/js/297.44ce4a27.chunk.js",
+    "static/js/555.a14f1fd4.chunk.js": "/static/js/555.a14f1fd4.chunk.js",
+    "static/css/926.1576e34e.chunk.css": "/static/css/926.1576e34e.chunk.css",
+    "static/js/926.8cd4d053.chunk.js": "/static/js/926.8cd4d053.chunk.js",
+    "static/js/84.51d87f9c.chunk.js": "/static/js/84.51d87f9c.chunk.js",
+    "static/js/453.09c479ce.chunk.js": "/static/js/453.09c479ce.chunk.js",
+    "static/js/796.035b950f.chunk.js": "/static/js/796.035b950f.chunk.js",
+    "static/js/378.7a776eac.chunk.js": "/static/js/378.7a776eac.chunk.js",
+    "static/js/366.4a1d51d7.chunk.js": "/static/js/366.4a1d51d7.chunk.js",
+    "index.html": "/index.html",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "main.7289d52c.css.map": "/static/css/main.7289d52c.css.map",
+    "main.49af494f.js.map": "/static/js/main.49af494f.js.map",
+    "297.44ce4a27.chunk.js.map": "/static/js/297.44ce4a27.chunk.js.map",
+    "555.a14f1fd4.chunk.js.map": "/static/js/555.a14f1fd4.chunk.js.map",
+    "926.1576e34e.chunk.css.map": "/static/css/926.1576e34e.chunk.css.map",
+    "926.8cd4d053.chunk.js.map": "/static/js/926.8cd4d053.chunk.js.map",
+    "84.51d87f9c.chunk.js.map": "/static/js/84.51d87f9c.chunk.js.map",
+    "453.09c479ce.chunk.js.map": "/static/js/453.09c479ce.chunk.js.map",
+    "796.035b950f.chunk.js.map": "/static/js/796.035b950f.chunk.js.map",
+    "378.7a776eac.chunk.js.map": "/static/js/378.7a776eac.chunk.js.map",
+    "366.4a1d51d7.chunk.js.map": "/static/js/366.4a1d51d7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7289d52c.css",
+    "static/js/main.49af494f.js"
+  ]
+}

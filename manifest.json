@@ -1,0 +1,30 @@
+{
+  "short_name": "LATVIC",
+  "name": "LATVIC - Services de Sécurité en Guinée",
+  "icons": [
+    {
+      "src": "images/optimized/logo-320.webp",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/webp"
+    },
+    {
+      "src": "images/optimized/logo-640.webp",
+      "type": "image/webp",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/optimized/logo-1024.webp",
+      "type": "image/webp",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ff0000",
+  "background_color": "#000000",
+  "orientation": "portrait",
+  "categories": ["security", "business"],
+  "description": "LATVIC, créée en 2024, s'appuie sur plus de 35 ans d'expérience cumulée de ses dirigeants dans le domaine de la sécurité en Guinée."
+}
