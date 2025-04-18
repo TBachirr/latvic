@@ -52,6 +52,20 @@ app.use((req, res, next) => {
   next();
 });
 
+// Force la mise à jour du cache pour les métadonnées SEO
+app.use((req, res, next) => {
+  // Définir la date de dernière modification à maintenant pour les pages principales
+  if (req.path === '/' || req.path.endsWith('.html') || ['/about', '/services', '/contact'].includes(req.path)) {
+    const now = new Date();
+    res.setHeader('Last-Modified', now.toUTCString());
+    // Forcer les navigateurs et moteurs de recherche à recharger la page
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+  }
+  next();
+});
+
 // Compression pour améliorer les performances
 app.use(compression());
 
@@ -88,6 +102,8 @@ app.use(express.static(path.join(__dirname, 'build'), {
     // Pour les fichiers HTML, ne pas mettre en cache
     if (path.endsWith('.html')) {
       res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+      const now = new Date();
+      res.setHeader('Last-Modified', now.toUTCString());
     }
     // Pour JS, CSS et autres assets, mise en cache longue durée
     else if (path.match(/\.(js|css|png|jpg|jpeg|gif|ico|svg)$/)) {
@@ -95,6 +111,16 @@ app.use(express.static(path.join(__dirname, 'build'), {
     }
   },
 }));
+
+// Middleware pour les routes principales - ajoute des en-têtes pour éviter le cache
+app.use((req, res, next) => {
+  if (req.path === '/' || ['/about', '/services', '/contact'].includes(req.path)) {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+  }
+  next();
+});
 
 // Toutes les requêtes non API sont redirigées vers index.html
 app.get('*', (req, res) => {

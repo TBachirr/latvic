@@ -25,7 +25,7 @@ User-agent: SemrushBot
 Disallow: /
 
 # Localisation du sitemap
-Sitemap: https://latvic.com/sitemap.xml
+Sitemap: https://latvic.org/sitemap.xml
 
 # Fréquence de crawl
 Crawl-delay: 10
